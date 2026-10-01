@@ -90,7 +90,7 @@ class Path extends Shape
                     $command = $c[1];
 
                     for ($k = 0, $klen = count($item); $k < $klen; $k += $commandLength) {
-                        $_item = array_slice($item, $k, $k + $commandLength);
+                        $_item = array_slice($item, $k, $commandLength);
                         array_unshift($_item, $command);
                         $path[] = $_item;
 
@@ -448,7 +448,7 @@ class Path extends Shape
         $toX = $tx - $fx;
         $toY = $ty - $fy;
 
-        if ((float)($toX + $toY) === 0.0) {
+        if ((float)$toX === 0.0 && (float)$toY === 0.0) {
             return;
         }
 

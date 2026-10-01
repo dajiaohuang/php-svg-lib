@@ -229,7 +229,7 @@ abstract class AbstractTag
         $align = $preserveAspectRatio[0];
 
         // 4. Let meetOrSlice be the meetOrSlice value of preserveAspectRatio, or 'meet' if preserveAspectRatio is not defined or if meetOrSlice is missing from this value.
-        $meetOrSlice = $meetOrSlice ?? "meet";
+        $meetOrSlice = $preserveAspectRatio[1] ?? "meet";
 
         // 5. Initialize scale-x to e-width/vb-width.
         $scaleX = $vbWidth == 0 ? 0 : ($eWidth / $vbWidth);
@@ -267,12 +267,12 @@ abstract class AbstractTag
 
         // 13. If align contains 'yMid', add (e-height - vb-height * scale-y) / 2 to translate-y.
         if (strpos($align, "yMid") !== false) {
-            $translateX += ($eHeight - $vbHeight * $scaleY) / 2;
+            $translateY += ($eHeight - $vbHeight * $scaleY) / 2;
         }
 
         // 14. If align contains 'yMax', add (e-height - vb-height * scale-y) to translate-y.
-        if (strpos($align, "yMid") !== false) {
-            $translateX += ($eHeight - $vbHeight * $scaleY);
+        if (strpos($align, "yMax") !== false) {
+            $translateY += ($eHeight - $vbHeight * $scaleY);
         }
 
         $surface->translate($translateX, $translateY);
