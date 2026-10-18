@@ -90,7 +90,7 @@ class Path extends Shape
                     $command = $c[1];
 
                     for ($k = 0, $klen = count($item); $k < $klen; $k += $commandLength) {
-                        $_item = array_slice($item, $k, $commandLength);
+                        $_item = array_slice($item, $k, $k + $commandLength);
                         array_unshift($_item, $command);
                         $path[] = $_item;
 

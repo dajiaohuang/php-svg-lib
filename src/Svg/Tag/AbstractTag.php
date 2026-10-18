@@ -225,7 +225,7 @@ abstract class AbstractTag
         $eHeight = $attributes["height"] ?? $this->document->getHeight();
 
         // 3. Let align be the align value of preserveAspectRatio, or 'xMidYMid' if preserveAspectRatio is not defined.
-        $preserveAspectRatio = explode(" ", $attributes["preserveAspectRatio"] ?? "xMidYMid meet");
+        $preserveAspectRatio = explode(" ", $attributes["preserveaspectratio"] ?? "xMidYMid meet");
         $align = $preserveAspectRatio[0];
 
         // 4. Let meetOrSlice be the meetOrSlice value of preserveAspectRatio, or 'meet' if preserveAspectRatio is not defined or if meetOrSlice is missing from this value.
@@ -265,13 +265,13 @@ abstract class AbstractTag
             $translateX += ($eWidth - $vbWidth * $scaleX);
         }
 
-        // 13. If align contains 'yMid', add (e-height - vb-height * scale-y) / 2 to translate-y.
-        if (strpos($align, "yMid") !== false) {
+        // 13. If align contains 'YMid', add (e-height - vb-height * scale-y) / 2 to translate-y.
+        if (strpos($align, "YMid") !== false) {
             $translateY += ($eHeight - $vbHeight * $scaleY) / 2;
         }
 
-        // 14. If align contains 'yMax', add (e-height - vb-height * scale-y) to translate-y.
-        if (strpos($align, "yMax") !== false) {
+        // 14. If align contains 'YMax', add (e-height - vb-height * scale-y) to translate-y.
+        if (strpos($align, "YMax") !== false) {
             $translateY += ($eHeight - $vbHeight * $scaleY);
         }
 
